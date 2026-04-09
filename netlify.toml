@@ -1,11 +1,4 @@
-# このファイルは現在この site では使用されていません。
-# Netlify UI で "Base directory: app" が設定されているため、
-# Netlify は app/netlify.toml を読み込みます。
-#
-# UI の Base directory 設定を外した場合は、
-# このファイルの内容をアンコメントして使用してください:
-#
-# [build]
-#   base    = "app"
-#   command = "npm run build"
-#   publish = ".next"
+[build]
+  base    = "app"
+  command = "npm run build"
+  publish = ".next"
