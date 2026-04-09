@@ -1,0 +1,31 @@
+# ================================================================
+# Netlify デプロイ設定
+# ================================================================
+#
+# 【重要】このファイルは app/ ディレクトリに置いてあります。
+#
+# Netlify ダッシュボードで以下を設定してください:
+#   Site settings > Build & deploy > Build settings
+#   ┌─────────────────────────────────────────────────┐
+#   │ Base directory   : app                           │
+#   │ Build command    : npm run build                 │
+#   │ Publish directory: .next                         │
+#   └─────────────────────────────────────────────────┘
+#
+# 環境変数（Netlify ダッシュボード > Environment variables）:
+#   ANTHROPIC_API_KEY  : Anthropic API キー（必須）
+#
+# ================================================================
+
+[build]
+  base    = "."
+  command = "npm run build"
+  publish = ".next"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+# Next.js は Netlify が自動検出して @netlify/plugin-nextjs を適用します。
+# 明示的に指定する場合は以下のコメントを外してください:
+# [[plugins]]
+#   package = "@netlify/plugin-nextjs"

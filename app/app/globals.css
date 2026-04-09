@@ -1,0 +1,63 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* ─── 印刷スタイル ──────────────────────────────────── */
+
+@media print {
+  /* カラー印刷を維持 */
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* 印刷時は白背景・ダーク文字に統一 */
+  body {
+    background: #ffffff !important;
+    color: #1a1a1a !important;
+    font-size: 11pt;
+  }
+
+  /* ページ余白 */
+  @page {
+    margin: 18mm 16mm;
+  }
+
+  /* セクションをまたいで分割しない */
+  section {
+    break-inside: avoid;
+  }
+
+  /* カードやテーブルを分割しない */
+  .print-no-break {
+    break-inside: avoid;
+  }
+
+  /* スクロールコンテナを印刷時は解除（テーブル全体を表示） */
+  .overflow-x-auto {
+    overflow: visible !important;
+  }
+}

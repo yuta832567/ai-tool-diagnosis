@@ -1,0 +1,14 @@
+[
+  { "toolId": "chatgpt", "environmentType": "microsoft", "score": 20 },
+  { "toolId": "chatgpt", "environmentType": "google", "score": 20 },
+  { "toolId": "chatgpt", "environmentType": "mixed", "score": 30 },
+  { "toolId": "chatgpt", "environmentType": "standalone", "score": 35 },
+  { "toolId": "copilot", "environmentType": "microsoft", "score": 35 },
+  { "toolId": "copilot", "environmentType": "google", "score": 5 },
+  { "toolId": "copilot", "environmentType": "mixed", "score": 20 },
+  { "toolId": "copilot", "environmentType": "standalone", "score": 10 },
+  { "toolId": "gemini", "environmentType": "microsoft", "score": 5 },
+  { "toolId": "gemini", "environmentType": "google", "score": 35 },
+  { "toolId": "gemini", "environmentType": "mixed", "score": 20 },
+  { "toolId": "gemini", "environmentType": "standalone", "score": 15 }
+]

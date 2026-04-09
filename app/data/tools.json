@@ -1,0 +1,58 @@
+[
+  {
+    "id": "chatgpt",
+    "name": "ChatGPT",
+    "vendor": "OpenAI",
+    "shortDescription": "汎用性が高く、文章作成・アイデア出し・情報整理に強い",
+    "strongPoints": [
+      "文章生成・編集の質が高い",
+      "アイデア出し・ブレスト向き",
+      "特定ツールに縛られず使いやすい",
+      "個人から始めやすい価格帯"
+    ],
+    "cautionPoints": [
+      "Microsoft・Google製品との直接連携は限定的",
+      "企業向け管理機能は別プランが必要"
+    ],
+    "idealFor": ["文章作成", "アイデア出し", "情報収集", "翻訳"],
+    "pricingBand": "無料〜$20/月（個人）/ $25/月〜（企業）"
+  },
+  {
+    "id": "copilot",
+    "name": "Microsoft 365 Copilot",
+    "vendor": "Microsoft",
+    "shortDescription": "Word・Excel・TeamsなどMicrosoft製品と深く統合されたAI",
+    "strongPoints": [
+      "OutlookやTeamsとシームレスに連携",
+      "Word・Excel・PowerPointで直接使える",
+      "SharePoint上の社内ドキュメントを参照可能",
+      "企業向けセキュリティ・管理機能が充実"
+    ],
+    "cautionPoints": [
+      "Microsoft 365のライセンスが前提",
+      "価格が他に比べて高め",
+      "Google系ツールとの連携は弱い"
+    ],
+    "idealFor": ["Excel作業", "提案書・企画書作成", "会議メモ・要約", "メール作成"],
+    "pricingBand": "$30/月/ユーザー〜"
+  },
+  {
+    "id": "gemini",
+    "name": "Google Gemini",
+    "vendor": "Google",
+    "shortDescription": "Google検索や各種Googleサービスと連携するAI",
+    "strongPoints": [
+      "Gmail・Googleドキュメント・スプレッドシートで使える",
+      "Google検索との連携で最新情報を参照しやすい",
+      "Google Workspaceユーザーは追加コストが低め",
+      "情報収集・リサーチに強い"
+    ],
+    "cautionPoints": [
+      "Google Workspaceが前提",
+      "Microsoft製品との連携は弱い",
+      "文章生成はChatGPTにやや劣るケースがある"
+    ],
+    "idealFor": ["情報収集・下調べ", "会議メモ・要約", "メール作成", "データ整理・分析"],
+    "pricingBand": "無料〜$10/月（個人）/ Workspace追加$20/月〜"
+  }
+]
