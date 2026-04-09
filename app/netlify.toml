@@ -1,7 +1,7 @@
-# Netlify が実際に読み込むファイル（UI で Base directory: app が設定されているため）
-# root の netlify.toml は現在この site では使用されていません
-
 [build]
   base    = "app"
   command = "npm run build"
   publish = ".next"
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
