@@ -75,7 +75,9 @@ export default function Home() {
             診断結果をもとに、具体的な導入ステップや費用感についてご相談いただけます。
           </p>
           <a
-            href="mailto:contact@example.com"
+            href="https://timerex.net/s/kazu09233290_9cff/a1f23002"
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-block bg-indigo-600 text-white font-bold px-8 py-3 rounded-xl text-sm hover:bg-indigo-700 transition-colors shadow-sm"
           >
             無料相談を申し込む
