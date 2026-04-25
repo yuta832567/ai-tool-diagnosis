@@ -62,7 +62,7 @@ export function Step3Security({ data, onChange }: Props) {
       {/* Q16 扱う情報の種類 */}
       <div className="space-y-3">
         <label className="block text-sm font-semibold text-slate-700">
-          AIで扱う内容はどれに近いですか？ <span className="text-red-400">*</span>
+          AIで扱う情報の機密度 <span className="text-red-400">*</span>
         </label>
         <div className="grid grid-cols-1 gap-2">
           {dataSensitivityOptions.map((opt) => (
@@ -79,7 +79,7 @@ export function Step3Security({ data, onChange }: Props) {
       {/* Q17 個人情報 */}
       <div className="space-y-3">
         <label className="block text-sm font-semibold text-slate-700">
-          個人情報を扱うことはありますか？{' '}
+          個人情報の取り扱い{' '}
           <span className="text-slate-400 font-normal">（任意）</span>
         </label>
         <div className="grid grid-cols-2 gap-2">
@@ -97,7 +97,7 @@ export function Step3Security({ data, onChange }: Props) {
       {/* Q18 社外秘の資料 */}
       <div className="space-y-3">
         <label className="block text-sm font-semibold text-slate-700">
-          社外に出せない資料を扱うことはありますか？{' '}
+          社外秘資料の取り扱い{' '}
           <span className="text-slate-400 font-normal">（任意）</span>
         </label>
         <div className="grid grid-cols-2 gap-2">
@@ -115,7 +115,7 @@ export function Step3Security({ data, onChange }: Props) {
       {/* Q19 ルールの厳しさ */}
       <div className="space-y-3">
         <label className="block text-sm font-semibold text-slate-700">
-          ルールや確認の厳しさはどれに近いですか？{' '}
+          社内ルールの厳しさ{' '}
           <span className="text-slate-400 font-normal">（任意）</span>
         </label>
         <div className="grid grid-cols-2 gap-2">
@@ -150,7 +150,7 @@ export function Step3Security({ data, onChange }: Props) {
       {/* Q21 推進担当 */}
       <div className="space-y-3">
         <label className="block text-sm font-semibold text-slate-700">
-          社内でAIを進める担当者はいますか？ <span className="text-red-400">*</span>
+          社内AI導入の推進担当者 <span className="text-red-400">*</span>
         </label>
         <div className="grid grid-cols-3 gap-2">
           {aiOwnerOptions.map((opt) => (
@@ -167,7 +167,7 @@ export function Step3Security({ data, onChange }: Props) {
       {/* Q22 始める範囲 */}
       <div className="space-y-3">
         <label className="block text-sm font-semibold text-slate-700">
-          まずはどの範囲で始めたいですか？ <span className="text-red-400">*</span>
+          導入開始の範囲 <span className="text-red-400">*</span>
         </label>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
           {rolloutScopeOptions.map((opt) => (
@@ -184,7 +184,7 @@ export function Step3Security({ data, onChange }: Props) {
       {/* Q23 予算 */}
       <div className="space-y-3">
         <label className="block text-sm font-semibold text-slate-700">
-          1人あたりの想定予算（月額）{' '}
+          1人あたりのDX推進における予算（月額）{' '}
           <span className="text-slate-400 font-normal">（任意）</span>
         </label>
         <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
@@ -202,7 +202,7 @@ export function Step3Security({ data, onChange }: Props) {
       {/* Q24 重視すること */}
       <div className="space-y-3">
         <label className="block text-sm font-semibold text-slate-700">
-          何を重視しますか？ <span className="text-red-400">*</span>{' '}
+          重視すること <span className="text-red-400">*</span>{' '}
           <span className="text-slate-400 font-normal">（最大3つ）</span>
         </label>
         <div className="flex flex-wrap gap-2">

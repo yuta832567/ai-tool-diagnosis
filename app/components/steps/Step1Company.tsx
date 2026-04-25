@@ -116,7 +116,7 @@ export function Step1Company({ data, onChange }: Props) {
       {/* Q3 業種 */}
       <div className="space-y-3">
         <label className="block text-sm font-semibold text-slate-700">
-          会社の業種を教えてください <span className="text-red-400">*</span>
+          会社の業種 <span className="text-red-400">*</span>
         </label>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
           {industries.map((ind) => (
@@ -142,7 +142,7 @@ export function Step1Company({ data, onChange }: Props) {
       {/* Q4 事業内容 */}
       <div className="space-y-2">
         <label className="block text-sm font-semibold text-slate-700">
-          どんな事業をしていますか？ <span className="text-slate-400 font-normal">（任意）</span>
+          事業内容 <span className="text-slate-400 font-normal">（任意）</span>
         </label>
         <textarea
           rows={3}
@@ -173,7 +173,7 @@ export function Step1Company({ data, onChange }: Props) {
       {/* Q6 まず使いそうな人数 */}
       <div className="space-y-3">
         <label className="block text-sm font-semibold text-slate-700">
-          まず使いそうな人数 <span className="text-red-400">*</span>
+          生成AIを使用する予定人数 <span className="text-red-400">*</span>
         </label>
         <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
           {initialUserOptions.map((opt) => (
@@ -216,7 +216,7 @@ export function Step1Company({ data, onChange }: Props) {
       {/* Q8 AIを使ってみたい部門 */}
       <div className="space-y-3">
         <label className="block text-sm font-semibold text-slate-700">
-          AIを使ってみたい部門 <span className="text-red-400">*</span>{' '}
+          AIを扱ってみたい部署 <span className="text-red-400">*</span>{' '}
           <span className="text-slate-400 font-normal">（複数選択可）</span>
         </label>
         <div className="flex flex-wrap gap-2">

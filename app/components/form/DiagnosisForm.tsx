@@ -16,7 +16,7 @@ function validateStep(step: number, data: FormData): string | null {
     if (!data.industry) return '業種を選択してください'
     if (!data.companySize) return '会社規模を選択してください'
     if (!data.initialUsers) return '最初の利用人数を選択してください'
-    if (data.targetDepartments.length === 0) return 'AIを使いたい部門を選択してください'
+    if (data.targetDepartments.length === 0) return 'AIを扱いたい部署を選択してください'
   }
   if (step === 1) {
     if (!data.workEnvironment) return '社内ツール環境を選択してください'

@@ -56,7 +56,7 @@ export function Step2Environment({ data, onChange }: Props) {
       {/* Q10 普段の社内ツール */}
       <div className="space-y-3">
         <label className="block text-sm font-semibold text-slate-700">
-          普段よく使う社内ツールはどれですか？ <span className="text-red-400">*</span>
+          普段よく使う社内ツール <span className="text-red-400">*</span>
         </label>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
           {workEnvironments.map((opt) => (
@@ -82,7 +82,7 @@ export function Step2Environment({ data, onChange }: Props) {
       {/* Q11 よく使うアプリ */}
       <div className="space-y-3">
         <label className="block text-sm font-semibold text-slate-700">
-          よく使うものを選んでください{' '}
+          よく使うアプリ・ツール{' '}
           <span className="text-slate-400 font-normal">（複数選択可・任意）</span>
         </label>
         <div className="flex flex-wrap gap-2">
@@ -109,7 +109,7 @@ export function Step2Environment({ data, onChange }: Props) {
       {/* Q12 ファイル管理 */}
       <div className="space-y-3">
         <label className="block text-sm font-semibold text-slate-700">
-          ファイルは主にどこで管理していますか？{' '}
+          ファイルはどこで管理していますか？{' '}
           <span className="text-slate-400 font-normal">（任意）</span>
         </label>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
@@ -136,7 +136,7 @@ export function Step2Environment({ data, onChange }: Props) {
       {/* Q13 効率化したい仕事 */}
       <div className="space-y-3">
         <label className="block text-sm font-semibold text-slate-700">
-          どんな仕事を効率化したいですか？ <span className="text-red-400">*</span>{' '}
+          効率化したい仕事 <span className="text-red-400">*</span>{' '}
           <span className="text-slate-400 font-normal">（複数選択可）</span>
         </label>
         <div className="flex flex-wrap gap-2">
@@ -163,7 +163,7 @@ export function Step2Environment({ data, onChange }: Props) {
       {/* Q14 AIに期待すること */}
       <div className="space-y-3">
         <label className="block text-sm font-semibold text-slate-700">
-          AIに特に期待することは何ですか？{' '}
+          AIへの期待{' '}
           <span className="text-slate-400 font-normal">（複数選択可・任意）</span>
         </label>
         <div className="flex flex-wrap gap-2">
@@ -190,7 +190,7 @@ export function Step2Environment({ data, onChange }: Props) {
       {/* Q15 今いちばん困っていること */}
       <div className="space-y-2">
         <label className="block text-sm font-semibold text-slate-700">
-          今いちばん困っていることを教えてください{' '}
+          現在いちばん困っていること{' '}
           <span className="text-slate-400 font-normal">（任意）</span>
         </label>
         <textarea

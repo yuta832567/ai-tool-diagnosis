@@ -2,6 +2,8 @@
 
 import { useState } from 'react'
 import type { DiagnosisResult, ToolComparison, ToolAxisScores, UsecaseCard, ReadinessDetail, OverallAssessment } from '@/lib/types'
+import { ToolDetailModal } from './ToolDetailModal'
+import { getToolDetail } from '@/data/toolDetails'
 
 interface Props {
   result: DiagnosisResult
@@ -167,7 +169,7 @@ function PrintButton({ size = 'md' }: { size?: 'sm' | 'md' }) {
 
 // ─── I. エグゼクティブサマリー ────────────────────────────────────────────────
 
-function ExecutiveSummary({ result }: { result: DiagnosisResult }) {
+function ExecutiveSummary({ result, onToolClick }: { result: DiagnosisResult; onToolClick: (id: string) => void }) {
   const sorted = [...result.toolComparisons].sort((a, b) => b.score - a.score)
   const top = sorted[0]
   const meta = toolMeta[top.toolId] ?? toolMeta['chatgpt']
@@ -181,9 +183,13 @@ function ExecutiveSummary({ result }: { result: DiagnosisResult }) {
         <p className="text-xs font-bold text-slate-400 tracking-wider uppercase mb-3">推奨ツール</p>
         <div className="flex items-start justify-between gap-4 mb-4">
           <div className="flex-1 min-w-0">
-            <p className={`text-3xl font-black tracking-tight ${meta.textClass} leading-tight mb-1.5`}>
+            <button
+              onClick={() => onToolClick(top.toolId)}
+              className={`text-3xl font-black tracking-tight ${meta.textClass} leading-tight mb-1.5 text-left hover:underline underline-offset-4 decoration-2 print:no-underline`}
+            >
               {top.name}
-            </p>
+              <span className="ml-2 text-xs font-semibold align-middle opacity-60 no-underline">詳細 →</span>
+            </button>
             <p className="text-sm text-slate-600 leading-relaxed">{result.deploymentStance}</p>
           </div>
           <div className="text-right flex-shrink-0">
@@ -223,7 +229,7 @@ function ExecutiveSummary({ result }: { result: DiagnosisResult }) {
 
 // ─── II. ツール比較テーブル ────────────────────────────────────────────────────
 
-function ToolComparisonTable({ comparisons }: { comparisons: ToolComparison[] }) {
+function ToolComparisonTable({ comparisons, onToolClick }: { comparisons: ToolComparison[]; onToolClick: (id: string) => void }) {
   const sorted = [...comparisons].sort((a, b) => b.score - a.score)
   const topId = sorted[0].toolId
 
@@ -242,9 +248,12 @@ function ToolComparisonTable({ comparisons }: { comparisons: ToolComparison[] })
               <div key={tool.toolId}>
                 <div className="flex items-center justify-between mb-1.5">
                   <div className="flex items-center gap-2">
-                    <span className={`text-xs font-bold ${isTop ? meta.textClass : 'text-slate-400'}`}>
+                    <button
+                      onClick={() => onToolClick(tool.toolId)}
+                      className={`text-xs font-bold hover:underline underline-offset-2 print:no-underline ${isTop ? meta.textClass : 'text-slate-400'}`}
+                    >
                       {tool.name}
-                    </span>
+                    </button>
                     {isTop && (
                       <span className="text-xs bg-indigo-500 text-white px-1.5 py-0.5 rounded font-bold leading-none">
                         推奨
@@ -286,7 +295,12 @@ function ToolComparisonTable({ comparisons }: { comparisons: ToolComparison[] })
                     }`}
                   >
                     <div className="flex items-center gap-1.5 flex-wrap">
-                      {tool.name}
+                      <button
+                        onClick={() => onToolClick(tool.toolId)}
+                        className="hover:underline underline-offset-2 print:no-underline text-left"
+                      >
+                        {tool.name}
+                      </button>
                       {isTop && (
                         <span className="text-xs bg-indigo-500 text-white px-1 py-0.5 rounded font-bold leading-none">
                           推奨
@@ -634,7 +648,9 @@ function CTASection({ onRetry }: { onRetry: () => void }) {
         </p>
         <div className="flex flex-col sm:flex-row gap-3 justify-center items-center">
           <a
-            href="#contact"
+            href="https://timerex.net/s/kazu09233290_9cff/a1f23002"
+            target="_blank"
+            rel="noopener noreferrer"
             className="w-full sm:w-auto inline-block bg-indigo-600 text-white font-bold px-7 py-3 rounded-lg text-sm hover:bg-indigo-700 transition-colors shadow-sm"
           >
             無料相談を申し込む
@@ -656,6 +672,10 @@ function CTASection({ onRetry }: { onRetry: () => void }) {
 
 export function DiagnosisResult({ result, onRetry, companyName }: Props) {
   const conf = confidenceConfig[result.confidence]
+  const [selectedToolId, setSelectedToolId] = useState<string | null>(null)
+
+  const selectedToolDetail = selectedToolId ? getToolDetail(selectedToolId) : null
+  const selectedMeta = selectedToolId ? (toolMeta[selectedToolId] ?? toolMeta['chatgpt']) : null
 
   return (
     <div className="space-y-10">
@@ -682,8 +702,8 @@ export function DiagnosisResult({ result, onRetry, companyName }: Props) {
         </div>
       </div>
 
-      <ExecutiveSummary result={result} />
-      <ToolComparisonTable comparisons={result.toolComparisons} />
+      <ExecutiveSummary result={result} onToolClick={setSelectedToolId} />
+      <ToolComparisonTable comparisons={result.toolComparisons} onToolClick={setSelectedToolId} />
       <AxisAnalysisSection comparisons={result.toolComparisons} />
       <UsecaseCardsSection cards={result.usecaseCards} />
       <ReadinessSection detail={result.readinessDetail} />
@@ -696,6 +716,20 @@ export function DiagnosisResult({ result, onRetry, companyName }: Props) {
       </p>
 
       <CTASection onRetry={onRetry} />
+
+      {/* ツール詳細モーダル */}
+      {selectedToolDetail && selectedMeta && (
+        <ToolDetailModal
+          tool={selectedToolDetail}
+          onClose={() => setSelectedToolId(null)}
+          accentColor={{
+            textClass: selectedMeta.textClass,
+            bgClass: selectedMeta.bgClass,
+            borderClass: selectedMeta.borderClass,
+            badgeBg: selectedMeta.barClass,
+          }}
+        />
+      )}
     </div>
   )
 }
