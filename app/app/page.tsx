@@ -5,14 +5,14 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-slate-50">
       {/* ヘッダー */}
-      <header className="bg-white border-b border-slate-100 px-4 py-3">
+      <header className="bg-white border-b border-slate-100 px-4 py-4">
         <div className="max-w-2xl mx-auto flex items-center">
           <Image
             src="/images/aim-logo.png"
             alt="AIM"
-            width={120}
-            height={40}
-            className="h-9 w-auto"
+            width={180}
+            height={60}
+            className="h-12 w-auto"
             priority
           />
         </div>
@@ -22,7 +22,7 @@ export default function Home() {
       <section
         className="relative border-b border-slate-100 px-4 py-12 sm:py-16"
         style={{
-          backgroundImage: 'url(/images/fv-bg.jpg)',
+          backgroundImage: 'url(/images/fv-bg.jpeg)',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }}
