@@ -176,7 +176,7 @@ function ExecutiveSummary({ result, onToolClick }: { result: DiagnosisResult; on
 
   return (
     <section className="print:break-inside-avoid">
-      <SectionHeader num="I" title="エグゼクティブサマリー" />
+      <SectionHeader num="I" title="まずお伝えしたいこと" />
 
       {/* 推奨ツール ヒーローカード */}
       <div className={`rounded-2xl border-2 ${meta.borderClass} ${meta.bgClass} p-6 mb-4`}>
@@ -647,14 +647,6 @@ function CTASection({ onRetry }: { onRetry: () => void }) {
           この診断結果をもとに、選定・費用・社内展開の進め方について詳しくご相談いただけます。
         </p>
         <div className="flex flex-col sm:flex-row gap-3 justify-center items-center">
-          <a
-            href="https://timerex.net/s/kazu09233290_9cff/a1f23002"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-full sm:w-auto inline-block bg-indigo-600 text-white font-bold px-7 py-3 rounded-lg text-sm hover:bg-indigo-700 transition-colors shadow-sm"
-          >
-            無料相談を申し込む
-          </a>
           <PrintButton size="md" />
           <button
             onClick={onRetry}
@@ -662,6 +654,16 @@ function CTASection({ onRetry }: { onRetry: () => void }) {
           >
             診断をやり直す
           </button>
+        </div>
+        <div className="mt-4">
+          <a
+            href="https://ai-management.biz"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-sm text-[#0072A0] hover:underline underline-offset-4"
+          >
+            ホームページはこちら →
+          </a>
         </div>
       </div>
     </section>

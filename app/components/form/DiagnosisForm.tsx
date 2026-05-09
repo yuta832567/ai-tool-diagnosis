@@ -169,7 +169,7 @@ export function DiagnosisForm() {
         )}
         <button
           onClick={handleNext}
-          className="flex-1 py-3 rounded-xl bg-indigo-600 text-white font-bold text-sm hover:bg-indigo-700 active:bg-indigo-800 transition-colors shadow-sm"
+          className="flex-1 py-3 rounded-xl bg-[#0072A0] text-white font-bold text-sm hover:bg-[#005d83] active:bg-[#004d6e] transition-colors shadow-sm"
         >
           {step < totalSteps - 1 ? '次へ →' : '診断する'}
         </button>

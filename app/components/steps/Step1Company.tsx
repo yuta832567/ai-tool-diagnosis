@@ -97,7 +97,7 @@ export function Step1Company({ data, onChange }: Props) {
             type="button"
             onClick={handleParseUrl}
             disabled={!data.websiteUrl.trim() || urlStatus === 'loading'}
-            className="flex-shrink-0 px-4 py-2 rounded-xl text-sm font-semibold border border-indigo-200 text-indigo-600 bg-indigo-50 hover:bg-indigo-100 disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
+            className="flex-shrink-0 px-4 py-2 rounded-xl text-sm font-semibold border border-[#0072A0]/30 text-[#0072A0] bg-[#e6f3f8] hover:bg-[#d0e9f2] disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
           >
             {urlStatus === 'loading' ? '取得中…' : 'URLから自動入力'}
           </button>

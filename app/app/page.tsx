@@ -1,38 +1,56 @@
+import Image from 'next/image'
 import { DiagnosisForm } from '@/components/form/DiagnosisForm'
 
 export default function Home() {
   return (
     <div className="min-h-screen bg-slate-50">
       {/* ヘッダー */}
-      <header className="bg-white border-b border-slate-100 px-4 py-4">
-        <div className="max-w-2xl mx-auto">
-          <p className="text-sm font-semibold text-indigo-600">AI Tool Diagnosis</p>
+      <header className="bg-white border-b border-slate-100 px-4 py-3">
+        <div className="max-w-2xl mx-auto flex items-center">
+          <Image
+            src="/images/aim-logo.png"
+            alt="AIM"
+            width={120}
+            height={40}
+            className="h-9 w-auto"
+            priority
+          />
         </div>
       </header>
 
       {/* ヒーローセクション */}
-      <section className="bg-white border-b border-slate-100 px-4 py-12 sm:py-16">
-        <div className="max-w-2xl mx-auto text-center">
-          <span className="inline-block bg-indigo-50 text-indigo-600 text-xs font-semibold px-3 py-1 rounded-full mb-4">
+      <section
+        className="relative border-b border-slate-100 px-4 py-12 sm:py-16"
+        style={{
+          backgroundImage: 'url(/images/fv-bg.jpg)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+        }}
+      >
+        {/* オーバーレイ */}
+        <div className="absolute inset-0 bg-slate-900/65" />
+
+        <div className="relative max-w-2xl mx-auto text-center">
+          <span className="inline-block bg-white/15 border border-white/30 text-white text-xs font-semibold px-3 py-1 rounded-full mb-4">
             無料・60〜90秒で完了
           </span>
-          <h1 className="text-2xl sm:text-3xl font-black text-slate-900 leading-tight mb-4">
+          <h1 className="text-2xl sm:text-3xl font-black text-white leading-tight mb-4">
             あなたの会社に合う<br />
-            <span className="text-indigo-600">生成AIツール</span>を診断する
+            <span className="text-sky-300">生成AIツール</span>を診断する
           </h1>
-          <p className="text-sm sm:text-base text-slate-600 leading-relaxed mb-6 max-w-lg mx-auto">
+          <p className="text-sm sm:text-base text-white/80 leading-relaxed mb-6 max-w-lg mx-auto">
             ChatGPT・Microsoft 365 Copilot・Google Geminiの中から、
             会社の環境や業務内容をもとに最も相性のよいツールを分析します。
           </p>
-          <div className="flex flex-wrap justify-center gap-3 text-xs text-slate-500">
+          <div className="flex flex-wrap justify-center gap-3 text-xs text-white/70">
             <span className="flex items-center gap-1">
-              <span className="text-green-500">✓</span> データ保存なし
+              <span className="text-green-400">✓</span> データ保存なし
             </span>
             <span className="flex items-center gap-1">
-              <span className="text-green-500">✓</span> ログイン不要
+              <span className="text-green-400">✓</span> ログイン不要
             </span>
             <span className="flex items-center gap-1">
-              <span className="text-green-500">✓</span> 無料で診断
+              <span className="text-green-400">✓</span> 無料で診断
             </span>
           </div>
         </div>
@@ -78,7 +96,7 @@ export default function Home() {
             href="https://timerex.net/s/kazu09233290_9cff/a1f23002"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block bg-indigo-600 text-white font-bold px-8 py-3 rounded-xl text-sm hover:bg-indigo-700 transition-colors shadow-sm"
+            className="inline-block bg-[#0072A0] text-white font-bold px-8 py-3 rounded-xl text-sm hover:bg-[#005d83] transition-colors shadow-sm"
           >
             無料相談を申し込む
           </a>
