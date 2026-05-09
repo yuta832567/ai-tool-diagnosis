@@ -5,14 +5,14 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-slate-50">
       {/* ヘッダー */}
-      <header className="bg-white border-b border-slate-100 px-4 py-4">
+      <header className="bg-white border-b border-slate-100 px-4 py-5">
         <div className="max-w-2xl mx-auto flex items-center">
           <Image
             src="/images/aim-logo.png"
             alt="AIM"
-            width={180}
-            height={60}
-            className="h-12 w-auto"
+            width={240}
+            height={80}
+            className="h-14 w-auto"
             priority
           />
         </div>
