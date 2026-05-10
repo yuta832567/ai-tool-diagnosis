@@ -13,8 +13,8 @@ export function MultiSelectChip({ label, selected, onClick }: MultiSelectChipPro
       onClick={onClick}
       className={`px-4 py-2 rounded-full border-2 text-sm font-medium transition-all cursor-pointer ${
         selected
-          ? 'border-indigo-500 bg-indigo-500 text-white'
-          : 'border-slate-200 bg-white text-slate-700 hover:border-indigo-300 hover:bg-indigo-50'
+          ? 'border-[#0072A0] bg-[#0072A0] text-white'
+          : 'border-slate-200 bg-white text-slate-700 hover:border-[#0072A0]/50 hover:bg-[#0072A0]/10'
       }`}
     >
       {selected && <span className="mr-1">✓</span>}

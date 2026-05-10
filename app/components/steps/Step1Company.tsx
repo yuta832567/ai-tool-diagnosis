@@ -101,7 +101,7 @@ export function Step1Company({ data, onChange }: Props) {
           placeholder="株式会社〇〇"
           value={data.companyName}
           onChange={(e) => onChange({ companyName: e.target.value })}
-          className="w-full px-4 py-3 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:border-transparent"
+          className="w-full px-4 py-3 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#0072A0] focus:border-transparent"
         />
       </div>
 
@@ -119,7 +119,7 @@ export function Step1Company({ data, onChange }: Props) {
               onChange({ websiteUrl: e.target.value })
               setUrlStatus('idle')
             }}
-            className="flex-1 px-4 py-3 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:border-transparent"
+            className="flex-1 px-4 py-3 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#0072A0] focus:border-transparent"
           />
           <button
             type="button"
@@ -162,7 +162,7 @@ export function Step1Company({ data, onChange }: Props) {
             placeholder="業種を入力してください"
             value={data.industryOther}
             onChange={(e) => onChange({ industryOther: e.target.value })}
-            className="w-full px-4 py-3 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:border-transparent"
+            className="w-full px-4 py-3 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#0072A0] focus:border-transparent"
           />
         )}
       </div>
@@ -177,7 +177,7 @@ export function Step1Company({ data, onChange }: Props) {
           placeholder="例：中小企業向けのITシステム導入支援や運用サポートを行っています"
           value={data.businessDescription}
           onChange={(e) => onChange({ businessDescription: e.target.value })}
-          className="w-full px-4 py-3 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:border-transparent resize-none"
+          className="w-full px-4 py-3 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#0072A0] focus:border-transparent resize-none"
         />
       </div>
 
@@ -236,7 +236,7 @@ export function Step1Company({ data, onChange }: Props) {
             placeholder="具体的に教えてください"
             value={data.businessTypesOther}
             onChange={(e) => onChange({ businessTypesOther: e.target.value })}
-            className="w-full px-4 py-3 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:border-transparent"
+            className="w-full px-4 py-3 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#0072A0] focus:border-transparent"
           />
         )}
       </div>
@@ -263,7 +263,7 @@ export function Step1Company({ data, onChange }: Props) {
             placeholder="具体的に教えてください"
             value={data.targetDepartmentsOther}
             onChange={(e) => onChange({ targetDepartmentsOther: e.target.value })}
-            className="w-full px-4 py-3 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:border-transparent"
+            className="w-full px-4 py-3 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#0072A0] focus:border-transparent"
           />
         )}
       </div>
@@ -278,7 +278,7 @@ export function Step1Company({ data, onChange }: Props) {
           placeholder="業界特有の事情や気になることなど"
           value={data.otherNotes}
           onChange={(e) => onChange({ otherNotes: e.target.value })}
-          className="w-full px-4 py-3 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:border-transparent resize-none"
+          className="w-full px-4 py-3 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#0072A0] focus:border-transparent resize-none"
         />
       </div>
     </div>

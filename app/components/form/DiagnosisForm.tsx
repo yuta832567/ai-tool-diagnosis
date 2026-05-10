@@ -107,8 +107,8 @@ export function DiagnosisForm() {
     return (
       <div className="min-h-[400px] flex flex-col items-center justify-center gap-6 py-16">
         <div className="relative w-16 h-16">
-          <div className="absolute inset-0 rounded-full border-4 border-indigo-100" />
-          <div className="absolute inset-0 rounded-full border-4 border-indigo-500 border-t-transparent animate-spin" />
+          <div className="absolute inset-0 rounded-full border-4 border-[#0072A0]/20" />
+          <div className="absolute inset-0 rounded-full border-4 border-[#0072A0] border-t-transparent animate-spin" />
         </div>
         <div className="text-center">
           <p className="text-base font-semibold text-slate-700 mb-1">診断中です...</p>

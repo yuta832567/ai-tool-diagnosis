@@ -224,7 +224,7 @@ export function Step3Security({ data, onChange }: Props) {
             placeholder="具体的に教えてください"
             value={data.prioritiesOther}
             onChange={(e) => onChange({ prioritiesOther: e.target.value })}
-            className="w-full px-4 py-3 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:border-transparent"
+            className="w-full px-4 py-3 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#0072A0] focus:border-transparent"
           />
         )}
       </div>

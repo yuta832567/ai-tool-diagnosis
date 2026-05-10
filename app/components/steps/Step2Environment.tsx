@@ -74,7 +74,7 @@ export function Step2Environment({ data, onChange }: Props) {
             placeholder="具体的に教えてください"
             value={data.workEnvironmentOther}
             onChange={(e) => onChange({ workEnvironmentOther: e.target.value })}
-            className="w-full px-4 py-3 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:border-transparent"
+            className="w-full px-4 py-3 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#0072A0] focus:border-transparent"
           />
         )}
       </div>
@@ -101,7 +101,7 @@ export function Step2Environment({ data, onChange }: Props) {
             placeholder="具体的に教えてください"
             value={data.usedAppsOther}
             onChange={(e) => onChange({ usedAppsOther: e.target.value })}
-            className="w-full px-4 py-3 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:border-transparent"
+            className="w-full px-4 py-3 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#0072A0] focus:border-transparent"
           />
         )}
       </div>
@@ -128,7 +128,7 @@ export function Step2Environment({ data, onChange }: Props) {
             placeholder="具体的に教えてください"
             value={data.fileStorageOther}
             onChange={(e) => onChange({ fileStorageOther: e.target.value })}
-            className="w-full px-4 py-3 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:border-transparent"
+            className="w-full px-4 py-3 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#0072A0] focus:border-transparent"
           />
         )}
       </div>
@@ -155,7 +155,7 @@ export function Step2Environment({ data, onChange }: Props) {
             placeholder="具体的に教えてください"
             value={data.usecasesOther}
             onChange={(e) => onChange({ usecasesOther: e.target.value })}
-            className="w-full px-4 py-3 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:border-transparent"
+            className="w-full px-4 py-3 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#0072A0] focus:border-transparent"
           />
         )}
       </div>
@@ -182,7 +182,7 @@ export function Step2Environment({ data, onChange }: Props) {
             placeholder="具体的に教えてください"
             value={data.expectedEffectsOther}
             onChange={(e) => onChange({ expectedEffectsOther: e.target.value })}
-            className="w-full px-4 py-3 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:border-transparent"
+            className="w-full px-4 py-3 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#0072A0] focus:border-transparent"
           />
         )}
       </div>
@@ -198,7 +198,7 @@ export function Step2Environment({ data, onChange }: Props) {
           placeholder="例：提案書作成に時間がかかる、社内情報が探しにくいなど"
           value={data.biggestPain}
           onChange={(e) => onChange({ biggestPain: e.target.value })}
-          className="w-full px-4 py-3 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:border-transparent resize-none"
+          className="w-full px-4 py-3 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#0072A0] focus:border-transparent resize-none"
         />
       </div>
     </div>

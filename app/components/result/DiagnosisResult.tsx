@@ -255,7 +255,7 @@ function ToolComparisonTable({ comparisons, onToolClick }: { comparisons: ToolCo
                       {tool.name}
                     </button>
                     {isTop && (
-                      <span className="text-xs bg-indigo-500 text-white px-1.5 py-0.5 rounded font-bold leading-none">
+                      <span className="text-xs bg-[#0072A0] text-white px-1.5 py-0.5 rounded font-bold leading-none">
                         推奨
                       </span>
                     )}
@@ -302,7 +302,7 @@ function ToolComparisonTable({ comparisons, onToolClick }: { comparisons: ToolCo
                         {tool.name}
                       </button>
                       {isTop && (
-                        <span className="text-xs bg-indigo-500 text-white px-1 py-0.5 rounded font-bold leading-none">
+                        <span className="text-xs bg-[#0072A0] text-white px-1 py-0.5 rounded font-bold leading-none">
                           推奨
                         </span>
                       )}
@@ -469,8 +469,8 @@ function UsecaseCardsSection({ cards }: { cards: UsecaseCard[] }) {
               <p className="text-sm font-bold text-slate-800 leading-snug pt-0.5">{card.title}</p>
             </div>
 
-            <div className="bg-indigo-50 rounded-lg px-3 py-2.5">
-              <p className="text-xs font-bold text-indigo-600 mb-1">期待効果</p>
+            <div className="bg-[#0072A0]/10 rounded-lg px-3 py-2.5">
+              <p className="text-xs font-bold text-[#0072A0] mb-1">期待効果</p>
               <p className="text-xs text-slate-700 leading-relaxed">{card.expectedEffect}</p>
             </div>
 
@@ -570,7 +570,7 @@ function ReadinessSection({ detail }: { detail: ReadinessDetail }) {
           <ol className="space-y-3">
             {detail.nextActions.map((action, i) => (
               <li key={i} className="flex items-start gap-3">
-                <span className="flex-shrink-0 w-6 h-6 rounded-full bg-indigo-50 border-2 border-indigo-200 text-indigo-600 text-xs font-black flex items-center justify-center">
+                <span className="flex-shrink-0 w-6 h-6 rounded-full bg-[#0072A0]/10 border-2 border-[#0072A0]/30 text-[#0072A0] text-xs font-black flex items-center justify-center">
                   {i + 1}
                 </span>
                 <p className="text-sm text-slate-700 leading-relaxed pt-0.5">{action}</p>
@@ -604,7 +604,7 @@ function OverallAssessmentSection({ assessment }: { assessment: OverallAssessmen
 
         {/* どう始めるか */}
         <div className="bg-white border border-slate-200 rounded-xl overflow-hidden flex">
-          <div className="w-1 flex-shrink-0 bg-indigo-500" />
+          <div className="w-1 flex-shrink-0 bg-[#0072A0]" />
           <div className="px-5 py-4 flex-1">
             <p className="text-xs font-bold text-slate-400 tracking-wider uppercase mb-2">
               どう始めるべきか
