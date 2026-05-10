@@ -81,6 +81,16 @@
 - [x] レポート画面に「ホームページはこちら →」リンクを追加（`https://ai-management.biz`）
 - [x] CTAセクションの「無料相談を申し込む」ボタンを削除（重複解消）
 
+## Phase 9b: UIアクセントカラー統一 ← **2026-05-10 本番確認完了**
+
+- [x] 紫/indigo系アクセントカラーを `#0072A0`（AIM ブルー）に統一（commit `dab9783`）
+  - Step番号アイコン・進捗バー（`ProgressBar.tsx`）
+  - 選択チップ（`MultiSelectChip.tsx`）・選択カード（`SelectCard.tsx`）
+  - ローディングスピナー（`DiagnosisForm.tsx`）
+  - 診断結果「推奨」バッジ・「期待効果」ブロック・次のアクション番号アイコン・左ボーダー（`DiagnosisResult.tsx`）
+  - 各ステップ入力フィールドの `focus:ring`（`Step1〜3`）
+- [x] Vercel 本番確認済み（紫/indigo 系アクセントカラーなし）
+
 ## Phase 10: Supabase連携・管理画面 ← **2026-05-10 本番確認完了**
 
 ### 実装完了
