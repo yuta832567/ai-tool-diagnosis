@@ -8,11 +8,11 @@ export default function Home() {
       <header className="bg-white border-b border-slate-100 px-4 py-5">
         <div className="max-w-2xl mx-auto flex items-center">
           <Image
-            src="/images/aim-logo.png"
+            src="/images/aim-logo-v2.png"
             alt="AIM"
-            width={240}
-            height={80}
-            className="h-14 w-auto"
+            width={300}
+            height={100}
+            className="h-16 w-auto"
             priority
           />
         </div>
