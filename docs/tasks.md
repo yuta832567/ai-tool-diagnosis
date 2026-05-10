@@ -81,6 +81,36 @@
 - [x] レポート画面に「ホームページはこちら →」リンクを追加（`https://ai-management.biz`）
 - [x] CTAセクションの「無料相談を申し込む」ボタンを削除（重複解消）
 
+## Phase 10: Supabase連携・管理画面 ← **2026-05-10 実装完了（未commit）**
+
+### 実装完了
+- [x] `@supabase/supabase-js` のインストール
+- [x] `app/lib/supabase.ts` 作成（service_role クライアント・サーバー専用）
+- [x] `app/lib/adminAuth.ts` 作成（Cookie ベース簡易認証・HMAC-SHA256）
+- [x] `app/lib/types.ts` 更新（`fullName`・`jobTitle` を FormData に追加、`estimatedTimeSaving` を DiagnosisResult に追加）
+- [x] `app/lib/scoring.ts` 更新（`calcEstimatedTimeSaving()` 追加・業務別基準値×準備度倍率）
+- [x] `app/components/steps/Step1Company.tsx` 更新（氏名必須・役職任意フィールドを先頭に追加）
+- [x] `app/components/form/DiagnosisForm.tsx` 更新（`fullName` 必須バリデーション追加）
+- [x] `app/app/api/analyze/route.ts` 更新（診断完了後に Supabase へ保存）
+- [x] `/admin` ログイン画面（`app/app/admin/page.tsx`）
+- [x] `/admin/sessions` 診断一覧画面（Server Component・Supabase 直接クエリ）
+- [x] `/admin/sessions/[id]` 診断詳細画面（Server Component）
+- [x] `POST /api/admin/login` 認証 API
+- [x] `POST /api/admin/logout` ログアウト API
+- [x] `app/.env.local.example` 作成（必要な環境変数テンプレート）
+- [x] `docs/supabase-setup.md` 作成（テーブル作成SQL・設定手順）
+- [x] FV の「データ保存なし」文言を「即時結果表示」に修正
+- [x] `npm run build` 成功確認
+
+### 未完了・次回作業
+- [ ] **Supabase プロジェクトを作成する**（docs/supabase-setup.md の SQL を実行）
+- [ ] **Vercel 環境変数を設定する**（`SUPABASE_URL` / `SUPABASE_SERVICE_ROLE_KEY` / `ADMIN_DASHBOARD_PASSWORD`）
+- [ ] **本番で診断→Supabase 保存を実データで確認する**
+- [ ] **管理画面の実動作確認**（ローカル or 本番で一覧・詳細表示）
+- [ ] **commit / push**（確認後に実施）
+- [ ] docs/tasks.md・worklog への追記（本 Phase 完了後）
+- [ ] Next.js の高重要度脆弱性（GHSA-q4gf-8mx6-v5v3）の対応検討（`next@16.2.6` へ更新で解消可能だが breaking change の可能性あり）
+
 ## 追加タスク（今後の改善候補）
 - [ ] 結果画面のさらなる改善（LLM生成テキスト差し替え後の品質確認）
 - [ ] `data/readinessRules.json` を独立ファイルに切り出す

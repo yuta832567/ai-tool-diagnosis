@@ -13,6 +13,7 @@ type Phase = 'form' | 'loading' | 'result'
 
 function validateStep(step: number, data: FormData): string | null {
   if (step === 0) {
+    if (!data.fullName.trim()) return 'お名前を入力してください'
     if (!data.industry) return '業種を選択してください'
     if (!data.companySize) return '会社規模を選択してください'
     if (!data.initialUsers) return '最初の利用人数を選択してください'

@@ -568,6 +568,42 @@ function buildTopReasons(data: FormData, topToolId: ToolId): string[] {
   return reasons
 }
 
+// ─── 想定削減時間 ─────────────────────────────────────────────────────────────
+
+function calcEstimatedTimeSaving(data: FormData, readinessScore: number): string {
+  // 業務別の月間削減時間の基準値（時間）
+  const savingsMap: Record<string, number> = {
+    'メール作成': 5,
+    '会議メモ・要約': 6,
+    '提案書・企画書作成': 8,
+    '情報収集・下調べ': 5,
+    'マニュアル作成': 6,
+    '翻訳': 4,
+    'データ整理・分析': 7,
+    'Excel作業': 8,
+    'コード作成・レビュー': 10,
+    '問い合わせ対応': 6,
+    '採用・研修資料作成': 5,
+    'アイデア出し': 3,
+  }
+
+  // 選択した業務の上位3件を合計
+  const selectedUsecases = data.usecases.slice(0, 3)
+  const baseSaving =
+    selectedUsecases.length > 0
+      ? selectedUsecases.reduce((sum, u) => sum + (savingsMap[u] ?? 4), 0)
+      : 6 // 業務未選択時のデフォルト
+
+  // 導入準備度による実現可能性の倍率（0.5〜1.0）
+  const multiplier = 0.5 + (readinessScore / 100) * 0.5
+
+  const mid = Math.round(baseSaving * multiplier)
+  const low = Math.max(1, Math.round(mid * 0.7))
+  const high = Math.round(mid * 1.4)
+
+  return `月${low}〜${high}時間`
+}
+
 // ─── メイン：診断結果生成 ─────────────────────────────────────────────────────
 
 export function buildDiagnosisResult(data: FormData): DiagnosisResult {
@@ -586,6 +622,7 @@ export function buildDiagnosisResult(data: FormData): DiagnosisResult {
   const overallAssessment = buildOverallAssessment(data, topToolId, readinessScore)
   const deploymentStance = buildDeploymentStance(data, readinessScore)
   const topReasons = buildTopReasons(data, topToolId)
+  const estimatedTimeSaving = calcEstimatedTimeSaving(data, readinessScore)
 
   const envName =
     data.workEnvironment === 'Microsoft系が中心'
@@ -606,6 +643,7 @@ export function buildDiagnosisResult(data: FormData): DiagnosisResult {
 
   return {
     recommendedTool: topTool?.name ?? topToolId,
+    estimatedTimeSaving,
     toolScores,
     confidence,
     deploymentStance,

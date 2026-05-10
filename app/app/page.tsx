@@ -44,13 +44,13 @@ export default function Home() {
           </p>
           <div className="flex flex-wrap justify-center gap-3 text-xs text-white/70">
             <span className="flex items-center gap-1">
-              <span className="text-green-400">✓</span> データ保存なし
-            </span>
-            <span className="flex items-center gap-1">
               <span className="text-green-400">✓</span> ログイン不要
             </span>
             <span className="flex items-center gap-1">
               <span className="text-green-400">✓</span> 無料で診断
+            </span>
+            <span className="flex items-center gap-1">
+              <span className="text-green-400">✓</span> 即時結果表示
             </span>
           </div>
         </div>

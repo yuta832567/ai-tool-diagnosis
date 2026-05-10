@@ -63,6 +63,34 @@ export function Step1Company({ data, onChange }: Props) {
 
   return (
     <div className="space-y-8">
+      {/* Q0 氏名（必須） */}
+      <div className="space-y-2">
+        <label className="block text-sm font-semibold text-slate-700">
+          お名前 <span className="text-red-400">*</span>
+        </label>
+        <input
+          type="text"
+          placeholder="山田 太郎"
+          value={data.fullName}
+          onChange={(e) => onChange({ fullName: e.target.value })}
+          className="w-full px-4 py-3 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#0072A0] focus:border-transparent"
+        />
+      </div>
+
+      {/* Q0b 役職（任意） */}
+      <div className="space-y-2">
+        <label className="block text-sm font-semibold text-slate-700">
+          役職 <span className="text-slate-400 font-normal">（任意）</span>
+        </label>
+        <input
+          type="text"
+          placeholder="代表取締役・営業部長 など"
+          value={data.jobTitle}
+          onChange={(e) => onChange({ jobTitle: e.target.value })}
+          className="w-full px-4 py-3 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#0072A0] focus:border-transparent"
+        />
+      </div>
+
       {/* Q1 会社名 */}
       <div className="space-y-2">
         <label className="block text-sm font-semibold text-slate-700">

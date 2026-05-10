@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server'
 import Anthropic from '@anthropic-ai/sdk'
 import { buildDiagnosisResult } from '@/lib/scoring'
 import type { FormData as DiagFormData, DiagnosisResult } from '@/lib/types'
+import { getSupabaseAdmin } from '@/lib/supabase'
 
 // ─── LLM テキスト型 ───────────────────────────────────────────────────────────
 
@@ -183,6 +184,41 @@ function mergeWithLLMTexts(base: DiagnosisResult, llm: LLMTexts): DiagnosisResul
   return result
 }
 
+// ─── Supabase 保存 ────────────────────────────────────────────────────────────
+
+async function saveSession(formData: DiagFormData, result: DiagnosisResult) {
+  const supabase = getSupabaseAdmin()
+  if (!supabase) {
+    console.info('[analyze] Supabase 未設定のため保存をスキップします')
+    return
+  }
+
+  try {
+    const { error } = await supabase.from('diagnosis_sessions').insert({
+      full_name:             formData.fullName,
+      job_title:             formData.jobTitle    || null,
+      company_name:          formData.companyName || null,
+      industry:              formData.industry    || null,
+      recommended_tool:      result.recommendedTool,
+      score_chatgpt:         result.toolScores.chatgpt,
+      score_copilot:         result.toolScores.copilot,
+      score_gemini:          result.toolScores.gemini,
+      readiness_score:       result.readinessScore,
+      estimated_time_saving: result.estimatedTimeSaving,
+      form_data:             formData,
+      result:                result,
+    })
+
+    if (error) {
+      console.error('[analyze] Supabase 保存エラー:', error.message)
+    } else {
+      console.info('[analyze] Supabase への保存が完了しました')
+    }
+  } catch (err) {
+    console.error('[analyze] Supabase 保存中に予期しないエラーが発生しました:', err)
+  }
+}
+
 // ─── POST /api/analyze ────────────────────────────────────────────────────────
 
 export async function POST(request: NextRequest) {
@@ -201,6 +237,7 @@ export async function POST(request: NextRequest) {
   const apiKey = process.env.ANTHROPIC_API_KEY
   if (!apiKey) {
     console.info('[analyze] ANTHROPIC_API_KEY not set – returning rule-based result')
+    await saveSession(formData, baseResult)
     return NextResponse.json(baseResult)
   }
 
@@ -208,9 +245,11 @@ export async function POST(request: NextRequest) {
   try {
     const llmTexts = await generateLLMTexts(formData, baseResult, apiKey)
     const finalResult = mergeWithLLMTexts(baseResult, llmTexts)
+    await saveSession(formData, finalResult)
     return NextResponse.json(finalResult)
   } catch (err) {
     console.error('[analyze] LLM generation failed, falling back to rule-based result:', err)
+    await saveSession(formData, baseResult)
     return NextResponse.json(baseResult)
   }
 }

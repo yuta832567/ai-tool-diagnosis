@@ -1,4 +1,8 @@
 export interface FormData {
+  // Step 1: 基本情報（必須）
+  fullName: string
+  jobTitle: string
+
   // Step 1: 会社のこと
   companyName: string
   websiteUrl: string
@@ -40,6 +44,8 @@ export interface FormData {
 }
 
 export const initialFormData: FormData = {
+  fullName: '',
+  jobTitle: '',
   companyName: '',
   websiteUrl: '',
   industry: '',
@@ -120,6 +126,7 @@ export interface OverallAssessment {
 export interface DiagnosisResult {
   // 基本情報
   recommendedTool: string
+  estimatedTimeSaving: string
   toolScores: { chatgpt: number; copilot: number; gemini: number }
   confidence: 'high' | 'medium' | 'low'
 
