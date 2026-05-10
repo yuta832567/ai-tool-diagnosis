@@ -81,7 +81,7 @@
 - [x] レポート画面に「ホームページはこちら →」リンクを追加（`https://ai-management.biz`）
 - [x] CTAセクションの「無料相談を申し込む」ボタンを削除（重複解消）
 
-## Phase 10: Supabase連携・管理画面 ← **2026-05-10 実装完了（未commit）**
+## Phase 10: Supabase連携・管理画面 ← **2026-05-10 本番確認完了**
 
 ### 実装完了
 - [x] `@supabase/supabase-js` のインストール
@@ -101,15 +101,24 @@
 - [x] `docs/supabase-setup.md` 作成（テーブル作成SQL・設定手順）
 - [x] FV の「データ保存なし」文言を「即時結果表示」に修正
 - [x] `npm run build` 成功確認
+- [x] commit `aa0cff3`・`main` へ push 済み
 
-### 未完了・次回作業
-- [ ] **Supabase プロジェクトを作成する**（docs/supabase-setup.md の SQL を実行）
-- [ ] **Vercel 環境変数を設定する**（`SUPABASE_URL` / `SUPABASE_SERVICE_ROLE_KEY` / `ADMIN_DASHBOARD_PASSWORD`）
-- [ ] **本番で診断→Supabase 保存を実データで確認する**
-- [ ] **管理画面の実動作確認**（ローカル or 本番で一覧・詳細表示）
-- [ ] **commit / push**（確認後に実施）
-- [ ] docs/tasks.md・worklog への追記（本 Phase 完了後）
-- [ ] Next.js の高重要度脆弱性（GHSA-q4gf-8mx6-v5v3）の対応検討（`next@16.2.6` へ更新で解消可能だが breaking change の可能性あり）
+### インフラ設定完了（2026-05-10）
+- [x] Supabase プロジェクト作成・SQL 実行（`diagnosis_sessions` テーブル・RLS 設定）
+- [x] Vercel 環境変数設定（`SUPABASE_URL` / `SUPABASE_SERVICE_ROLE_KEY` / `ADMIN_DASHBOARD_PASSWORD` / `ANTHROPIC_API_KEY`）
+- [x] Vercel 本番デプロイ確認（commit `aa0cff3` 反映済み）
+
+### 本番動作確認済み（2026-05-10）
+- [x] トップ画面表示・氏名必須フィールド表示
+- [x] 診断フォーム送信（LLM連携）
+- [x] Supabase `diagnosis_sessions` への保存
+- [x] `/admin` ログイン（`ADMIN_DASHBOARD_PASSWORD` で認証）
+- [x] `/admin/sessions` 一覧表示（保存されたレコード確認）
+- [x] `/admin/sessions/[id]` 詳細表示
+
+### 残タスク
+- [ ] Next.js 高重要度脆弱性（GHSA-q4gf-8mx6-v5v3）の対応検討（`next@16.2.6` で解消可能・breaking change リスクあり）
+- [ ] 管理画面認証の将来的な Supabase Auth 移行検討（現状は HMAC-SHA256 Cookie ベース）
 
 ## 追加タスク（今後の改善候補）
 - [ ] 結果画面のさらなる改善（LLM生成テキスト差し替え後の品質確認）
