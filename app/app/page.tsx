@@ -35,8 +35,8 @@ export default function Home() {
             無料・60〜90秒で完了
           </span>
           <h1 className="text-2xl sm:text-3xl font-black text-white leading-tight mb-4">
-            あなたの会社に合う<br />
-            <span className="text-sky-300">生成AIツール</span>を診断する
+            あなたの会社に<br />
+            <span className="text-sky-300">最適な生成AI</span>を診断
           </h1>
           <p className="text-sm sm:text-base text-white/80 leading-relaxed mb-6 max-w-lg mx-auto">
             ChatGPT・Microsoft 365 Copilot・Google Geminiの中から、
